@@ -23,10 +23,15 @@ mongoose
     process.exit(1); // Terminate the process if the connection fails
   });
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Feed Stock API');
+});
+
 // API route
 app.post('/feed-stock/add', async (req, res) => {
   try {
-    const { feed_name,feed_count,message } = req.body;
+    const { feed_name, feed_count, message } = req.body;
 
     if (!feed_name || !feed_count || !message) {
       return res.status(400).json({ message: 'All fields are required' });
@@ -44,14 +49,13 @@ app.post('/feed-stock/add', async (req, res) => {
 
 app.get('/feeds', async (req, res) => {
   try {
-    const feeds = await Feed_Schema.find({}); // This returns an array
-    console.log(feeds); // Log to verify data is in array format
-    res.json(feeds); // Send array of feeds as JSON response
+    const feeds = await Feed_Schema.find({});
+    console.log(feeds);
+    res.json(feeds);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching feeds' });
   }
 });
-
 
 // Starting the server
 app.listen(port, () => {
