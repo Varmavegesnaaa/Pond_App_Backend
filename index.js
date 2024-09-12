@@ -32,7 +32,7 @@ mongoose
 
 // Root route
 app.get('/', (req, res) => {
-  res.send('Welcome to the Feed Stock API modified');
+  res.send('Welcome Feed Stock API modified');
 });
 
 // API route
