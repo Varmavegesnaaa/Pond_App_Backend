@@ -10,7 +10,7 @@ const port = 5000;
 // Middlewares
 app.use(cors(
   {
-    origin:["https://pond-app-frontend.vercel.app"],
+    origin:["https://pond-app-frontend.vercel.app","https://pond-app-frontend.vercel.app/feed-stock/view","https://pond-app-frontend.vercel.app/feed-stock"],
     methods:["POST","GET"],
     credentials:true
   }
