@@ -8,7 +8,13 @@ const app = express();
 const port = 5000;
 
 // Middlewares
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://pond-app-frontend.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+));
 app.use(bodyParser.json());
 
 // MongoDB Connection
